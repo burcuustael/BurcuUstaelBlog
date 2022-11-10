@@ -1,0 +1,38 @@
+﻿
+@{
+}
+
+<form asp-action="Index" method="post">
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">İsim Soyisim</label>
+        <input type="text" class="form-control" name="_name" aria-describedby="textHelp">
+        <div id="textHelp" class="form-text">We'll never share your name with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">E Posta Adresi</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="mesaj">Mesaj</label>
+        <textarea id="mesaj" class="form-control" name="mesaj"></textarea>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="kontrol">
+        <label class="form-check-label" for="exampleCheck1">Kabul Ediyorum</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Gönder</button>
+
+
+
+</form>
+<br />
+<br />
+
+        <h2>Bilgileriniz</h2>
+<br />
+<h3> İsminiz: @ViewBag.Name </h3>
+<h3> E-mailiniz: @ViewBag.Email</h3>
+<h3>Mesajnız: @ViewBag.Mesaj</h3>
+<h3>Onay durumunuz: @ViewBag.Kontrol</h3>
