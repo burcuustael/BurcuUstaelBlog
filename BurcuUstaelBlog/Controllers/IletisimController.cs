@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BurcuUstaelBlog.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BurcuUstaelBlog.Controllers
 {
@@ -10,14 +11,19 @@ namespace BurcuUstaelBlog.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(IFormCollection collections)
+        public IActionResult Index(Bilgiler bilgi)
         {
-            ViewBag.Name = collections["_name"];
-            ViewBag.Email = collections["email"];
-            ViewBag.Mesaj = collections["mesaj"];
-            ViewBag.Kontrol = collections["kontrol"][0];
+            if(ModelState.IsValid)
+            {
 
-            return View();
+            }
+
+            if(!ModelState.IsValid) {
+
+                ModelState.AddModelError("", "Lütfen Zorunlu Alanları Doldurunuz");
+            }
+            
+            return View(bilgi);
         }
     }
 }

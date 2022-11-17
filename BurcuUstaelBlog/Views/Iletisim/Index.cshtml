@@ -1,23 +1,44 @@
-﻿
+﻿@model Bilgiler;
+
 @{
 }
 
 <form asp-action="Index" method="post">
 
+    <div asp-validation-summary="ModelOnly"></div>
+
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">İsim Soyisim</label>
-        <input type="text" class="form-control" name="_name" aria-describedby="textHelp">
-        <div id="textHelp" class="form-text">We'll never share your name with anyone else.</div>
+        <input type="text" class="form-control" asp-for="@Model.IsimSoyisim" aria-describedby="textHelp">
+        <span asp-validation-for="@Model.IsimSoyisim" class="text-danger"></span>
+
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">E Posta Adresi</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <input type="email" class="form-control" id="exampleInputEmail1" asp-for="@Model.Eposta" aria-describedby="emailHelp">
+        <span asp-validation-for="@Model.Eposta" class="text-danger"></span>
     </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Tc Kimlik No</label>
+        <input type="text" class="form-control" asp-for="@Model.TcKimlikNo" aria-describedby="textHelp" maxlength="11" minlength="11">
+        <span asp-validation-for="@Model.TcKimlikNo" class="text-danger"></span>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Telefon</label>
+        <input type="text" class="form-control" asp-for="@Model.Telefon" aria-describedby="textHelp">
+
+    </div>
+
     <div class="mb-3">
         <label for="mesaj">Mesaj</label>
-        <textarea id="mesaj" class="form-control" name="mesaj"></textarea>
+        <textarea id="mesaj" class="form-control" asp-for="@Model.Mesaj">
+</textarea>
+        <span asp-validation-for="@Model.Mesaj" class="text-danger"></span>
     </div>
+
     <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="kontrol">
         <label class="form-check-label" for="exampleCheck1">Kabul Ediyorum</label>
@@ -30,9 +51,20 @@
 <br />
 <br />
 
-        <h2>Bilgileriniz</h2>
-<br />
-<h3> İsminiz: @ViewBag.Name </h3>
-<h3> E-mailiniz: @ViewBag.Email</h3>
-<h3>Mesajnız: @ViewBag.Mesaj</h3>
-<h3>Onay durumunuz: @ViewBag.Kontrol</h3>
+<h2>Bilgileriniz</h2>
+<hr />
+@if (Model is not null)
+{
+
+    <h3> İsim: @Model.IsimSoyisim   </h3>
+    <h3>Email: @Model.Eposta</h3>
+    <h3>Mesaj: @Model.Mesaj</h3>
+    <h3>Tc Kimlik No: @Model.TcKimlikNo</h3>
+
+}
+else
+{
+    <h1>Bilgi Yok</h1>
+}
+
+        
