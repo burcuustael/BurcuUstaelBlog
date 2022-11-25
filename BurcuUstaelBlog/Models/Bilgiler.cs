@@ -22,5 +22,6 @@ namespace BurcuUstaelBlog.Models
 
         [Required(ErrorMessage ="{0} alanını boş geçemezsiniz")]
         public string TcKimlikNo { get; set; }
+
     }
 }

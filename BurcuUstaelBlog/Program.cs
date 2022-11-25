@@ -1,7 +1,12 @@
+using BurcuUstaelBlog.Models;
+using FluentValidation;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IValidator<Uye>, UyeValidator>();
 
 var app = builder.Build();
 

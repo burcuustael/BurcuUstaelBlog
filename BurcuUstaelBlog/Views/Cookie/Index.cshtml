@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Çerez Oluşturma</h1>
+
+<form asp-action="CookieOlustur">
+
+    <input type="text" name="kullaniciAdi" value="admin" />
+    <input type="password" name="sifre" placeholder="Şifre"/>
+    <input type="submit" value="Giriş" />
+
+</form>
+
+@TempData["mesaj"]
+
+
